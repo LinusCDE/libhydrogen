@@ -34,7 +34,8 @@ static TLS struct {
 #elif defined(CHIBIOS)
 # include "random/chibios.h"
 #else
-# error Unsupported platform
+//# error Unsupported platform
+# warning Unsupported platform. You need to implement hydro_random_init() on your own!
 #endif
 
 static void
