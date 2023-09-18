@@ -5,7 +5,9 @@ static TLS struct {
     uint8_t  available;
 } hydro_random_context;
 
-#if defined(AVR) && !defined(__unix__)
+#if defined(USE_CUSTOM_RANDOM)
+# include "custom_random.h"
+#elif defined(AVR) && !defined(__unix__)
 # include "random/avr.h"
 #elif (defined(ESP32) || defined(ESP8266)) && !defined(__unix__)
 # include "random/esp32.h"
